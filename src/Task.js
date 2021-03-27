@@ -4,7 +4,7 @@ import { Button, Tooltip, Container, Input, Checkbox } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import UpdateIcon from '@material-ui/icons/Update';
 
-const Task = ({ taskdata }) => {
+const Task = ({ taskdata , toggle }) => {
 
     const ref = React.useRef(null);
 
@@ -14,6 +14,7 @@ const Task = ({ taskdata }) => {
         const db = firebase.firestore();
         db.collection('tasks').doc(taskdata.id).delete();
 
+        toggle('changed')
     }
 
     const updatetask = () => {
@@ -21,6 +22,8 @@ const Task = ({ taskdata }) => {
         db.collection('tasks').doc(taskdata.id).update({
             task: task
         });
+
+        toggle('changed')
 
     }
 

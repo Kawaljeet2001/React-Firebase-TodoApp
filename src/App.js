@@ -9,6 +9,7 @@ function App() {
 
 
   const [Tasks, setTasks] = React.useState([]);
+  const [togglecreated , settogglecreated] = React.useState(false);
 
   React.useEffect(() => {
 
@@ -24,15 +25,15 @@ function App() {
     }
 
     fetchdata();
-  }, [])
+  }, [togglecreated])
   return (
     <>
       <Paper className='app' elevation={3}>
-        <CreateTask/>        
+        <CreateTask toggle = {(e) => {settogglecreated(!togglecreated)}}/>        
         <Container className = "task-holder" style={{'margin-top': '20px', padding: '15px 15px' }} maxWidth='sm'>
           {Tasks ?
             Tasks.map((task, index) => {
-              return <Task taskdata={task} key={index} />
+              return <Task toggle = {(e) => {settogglecreated(!togglecreated)}} taskdata={task} key={index} />
             })
             : null}
         </Container>
