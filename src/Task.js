@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from "./firebase";
 import { Button, Tooltip, Container, Input, Checkbox } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
+import UpdateIcon from '@material-ui/icons/Update';
 
 const Task = ({ taskdata }) => {
 
@@ -21,22 +22,24 @@ const Task = ({ taskdata }) => {
 
     }
     return (
-        <div className='task'>
-            <Container maxWidth = 'sm' style = {{'display' : 'flex', 'justify-content' : 'space-evenly', 'align-items' : 'center', 'border-bottom' : '1px solid #ddd'}}>
-                <Input multiline={true} disableUnderline={true} value={taskdata.task} onChange={(e) => { settask(e.target.value) }} value={task} />
-                <Tooltip title = 'complete'>
-                <Button style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }} variant='contained'>
-                    <CheckIcon />
-                </Button>
+        <>
+            <Container className = 'task'>
+                <Input className = 'task-field' multiline={true} disableUnderline={true} value={taskdata.task} onChange={(e) => { settask(e.target.value) }} value={task} />
+                <Tooltip className = 'tooltip' title = 'complete'>
+                    <Button style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }} variant='contained'>
+                        <CheckIcon />
+                    </Button>
                 </Tooltip>
-                <Tooltip title = 'Delete'>
+                <Tooltip className = 'tooltip' title = 'Delete'>
                     <Button style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }} variant='contained' color='secondary' onClick={deletetask}>X</Button>
                 </Tooltip>
-                <Tooltip title = 'Update Task'>
-                    <Button variant='outlined' onClick={updatetask}>Update</Button>
+                <Tooltip className = 'tooltip' title = 'Update Task'>
+                    <Button variant='outlined' onClick={updatetask} style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}>
+                        <UpdateIcon/>
+                    </Button>
                 </Tooltip>
             </Container>
-        </div>
+        </>
     )
 }
 

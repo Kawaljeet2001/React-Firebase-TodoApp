@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import firebase from "./firebase";
 import Task from "./Task";
-import { Container , Input , Button } from '@material-ui/core';
+import { Paper, Tooltip, Container , Input , Button } from '@material-ui/core';
 
 function App() {
 
@@ -31,19 +31,23 @@ function App() {
     fetchdata();
   }, [])
   return (
-    <div className="App">
-      <Container maxWidth = 'sm'  style = {{'margin-top' : '40px'}}>
-        <Input variant = 'contained' required = {true} placeholder="Enter a task" value={newtask} onChange={(e) => setnewtask(e.target.value)}/>
-        <Button variant = 'contained' onClick={createTask} color = 'primary'>Add Task</Button>
-        <Container  style = {{border: '1px solid black', 'margin-top' : '20px', padding: '15px 0px'}} maxWidth = 'sm'>
+    <>
+      <Paper className='app' elevation={3}>
+        <Container className = 'add-task'>
+          <Input required={true} placeholder="Create a task" value={newtask} onChange={(e) => setnewtask(e.target.value)} />
+          <Tooltip title="Add Task">
+            <Button variant='contained' onClick={createTask} color = 'primary' style = {{background: '#38b000'}}>Add Task</Button>
+          </Tooltip>
+        </Container>
+        <Container className = "task-holder" style={{'margin-top': '20px', padding: '15px 15px' }} maxWidth='sm'>
           {Tasks ?
             Tasks.map((task, index) => {
               return <Task taskdata={task} key={index} />
             })
             : null}
         </Container>
-      </Container>
-    </div>
+      </Paper>
+    </>
   );
 }
 
