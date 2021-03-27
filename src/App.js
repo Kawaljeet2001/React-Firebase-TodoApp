@@ -32,10 +32,10 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Container>
+      <Container maxWidth = 'sm'  style = {{'margin-top' : '40px'}}>
         <Input variant = 'contained' required = {true} placeholder="Enter a task" value={newtask} onChange={(e) => setnewtask(e.target.value)}/>
         <Button variant = 'contained' onClick={createTask} color = 'primary'>Add Task</Button>
-        <Container>
+        <Container  style = {{border: '1px solid black', 'margin-top' : '20px', padding: '15px 0px'}} maxWidth = 'sm'>
           {Tasks ?
             Tasks.map((task, index) => {
               return <Task taskdata={task} key={index} />
