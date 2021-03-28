@@ -22,7 +22,7 @@ const Task = ({ taskdata , toggle }) => {
         db.collection('tasks').doc(taskdata.id).update({
             task: task
         });
-
+        
         toggle('changed')
 
     }

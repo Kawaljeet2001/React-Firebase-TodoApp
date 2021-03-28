@@ -3,14 +3,11 @@ import firebase from "./firebase";
 import { Paper, Tooltip, Container , Input , Button } from '@material-ui/core';
 const CreateTask = ({toggle}) => {
     const [newtask, setnewtask] = React.useState("");
-    const createTask = async () => {
+    const createTask = () => {
 
         const db = firebase.firestore();
         db.collection('tasks').add({ task: newtask, iscompleted: false });
         setnewtask("");
-
-        toggle('change');
-
       }
     
     return (

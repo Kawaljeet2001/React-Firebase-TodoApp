@@ -9,6 +9,8 @@
 
 .task-holder{
   width: 95%;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 
 .add-task{
@@ -35,3 +37,21 @@
 .task-field{
   width: 56%;
 }
+
+.footer{
+  background: black;
+  position: fixed;
+  left: 0;
+  top: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.footer a{
+  color: white;
+  margin: 0px 35px;
+}
+
