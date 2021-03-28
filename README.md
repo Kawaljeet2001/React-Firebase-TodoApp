@@ -3,6 +3,8 @@
 This ToDo List App is made using React Hooks, Firebase-Firestore, Material-UI , CSS, JS(ES-7) and deployed on netlify.
 
 
+![Homepage](sample/img.png)
+
 ### How to setup Locally?
 
 For setting up the project on a local machine
