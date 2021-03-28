@@ -8,6 +8,8 @@ const CreateTask = ({toggle}) => {
         const db = firebase.firestore();
         db.collection('tasks').add({ task: newtask, iscompleted: false });
         setnewtask("");
+        
+        toggle('change')
       }
     
     return (
